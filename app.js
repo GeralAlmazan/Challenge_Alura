@@ -48,3 +48,35 @@ function actualizarListaAmigoSecreto(){
         lista.appendChild(li);
     });
 }
+
+//Función para sortear amigo secreto de acuerdo al array
+function sortearAmigo(){
+
+    if (listaDeNombres.length === 0 ){
+        alert("La lista de nombres esta vacia favor de agregar por lo menos un nobre");
+
+    }else{
+        //Realiza la seleccion aleatorea del nombre 
+        let aleatoreo = Math.floor(Math.random()* listaDeNombres.length);
+
+        //Regresa el nombre sorteado 
+        let amigoSecreto = listaDeNombres[aleatoreo];
+        console.log(`El amigo secreto seleccionado es: ${amigoSecreto}`);
+
+        //Limpia la lista que se visualiza en el elemento <ul>ListaAmigos 
+        let listaAmigos = document.getElementById("listaAmigos");
+        listaAmigos.innerHTML = "";
+
+        //Muestra el resultado en el elemento <ul> 
+        let resultado = document.getElementById("resultado");
+        //Limpia el contenido que existiera antes 
+        resultado.innerHTML = "";
+
+        let li = document.createElement("li");
+        li.textContent = `El amigo secreto es: ${amigoSecreto}`;
+        resultado.appendChild(li);
+
+    }
+
+
+}
